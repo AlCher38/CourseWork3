@@ -31,7 +31,7 @@ def get_executed_operations(values):
 def sort_date_operations(operations):
     """
     Функция вывода последних 5 операций
-    :return:
+    :return: list_operation
     """
     sort_list = sorted(operations, key=lambda x: datetime.strptime(x["date"], "%Y-%m-%dT%H:%M:%S.%f"), reverse=True)
     list_operation = sort_list[:5]
