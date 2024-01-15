@@ -21,4 +21,4 @@ amount_number = mask_amount_number(operations)
 for operation in range(len(operations)):
     print(f"{dates[operation]} {operations[operation]['description']}")
     print(f"{card_number[operation]} -> Счет {amount_number[operation]}")
-    print(f"{operations[operation]['operationAmount']['amount']} {operations[operation]['operationAmount']['currency']['name']}")
+    print(f"{operations[operation]['operationAmount']['amount']} {operations[operation]['operationAmount']['currency']['name']}\n")
