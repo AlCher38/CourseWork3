@@ -1,4 +1,3 @@
-import pytest
 from src.utils import *
 
 
@@ -21,3 +20,12 @@ def test_sort_date_operations():
 
 def test_change_date():
     assert change_date([{"date": "2018-03-23T10:45:06.972075"}]) == ['23.03.2018']
+
+
+def test_mask_card_number():
+    assert mask_card_number([{"from": "Visa Classic 2842878893689012",
+                              "description": "Перевод организации"}]) == ['Visa Classic 2842 87** **** 9012']
+
+
+def test_mask_amount_number():
+    assert mask_amount_number([{"to": "Счет 46765464282437878125"}]) == ['**7812']
