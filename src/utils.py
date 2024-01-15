@@ -29,7 +29,7 @@ def get_executed_operations(values):
 
 def sort_date_operations(operations):
     """
-    Функция сортировки даты
+    Функция вывода последних 5 операций
     :return:
     """
     sort_list = sorted(operations, key=lambda x: datetime.strptime(x["date"], "%Y-%m-%dT%H:%M:%S.%f"), reverse=True)
@@ -41,14 +41,22 @@ def change_date(date):
     """
     Функция форматирования даты, пример: 14.10.2018
     :return: date_operations
+    проверка print(change_date(sort_date_operations(get_executed_operations(load_json()))))
     """
     date_operations = []
     for list_data in date:
         sort_data = datetime.strptime(list_data['date'], "%Y-%m-%dT%H:%M:%S.%f")
         format_date = f"{sort_data: %d.%m.%Y}"
         date_operations.append(format_date)
-
     return date_operations
 
 
-print(change_date(sort_date_operations(get_executed_operations(load_json()))))
+def mask_card_number(card_number):
+    """
+    скрытие номера карты
+    проверка: print(mask_card_number("Maestro 1596837868705199"))
+    """
+    mask_number = "{} {}** **** {}".format(card_number[:-12], card_number[-10:-8], card_number[-4:])
+    return mask_number
+
+
