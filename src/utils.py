@@ -60,3 +60,13 @@ def mask_card_number(card_number):
     return mask_number
 
 
+def mask_amount_number(amount_number):
+    """
+    скрытие номера счета
+    проверка print(mask_amount_number("Счет 35383033474447895560"))
+    """
+    mask_amount = "Счёт **{}".format(amount_number[-4:])
+    return mask_amount
+
+
+
